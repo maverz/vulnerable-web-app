@@ -41,7 +41,12 @@ jobs:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       with:
         image: appvul
-        args: --file=Dockerfile
+        args: > --file=Dockerfile
+                --sarif-file-output=snyk.sarif
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: snyk.sarif
 
 
   deploy-heroku:
