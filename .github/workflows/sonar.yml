@@ -59,6 +59,7 @@ jobs:
         with:
           image: image-snyk:${{ github.sha }}
           args: >
+            DEBUG=*snyk*
             --file=Dockerfile
             --severity-threshold=high
       - name: Upload SARIF file
@@ -66,7 +67,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: snyk.sarif
-          
+
   deploy-heroku:
     name: Deploy Heroku
     runs-on: ubuntu-latest
