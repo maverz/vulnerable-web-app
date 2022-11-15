@@ -32,6 +32,7 @@ jobs:
         with:
           args: >
             -d
+            --file=package.json
             --severity-threshold=high
             --all-projects
             --sarif-file-output=snyk-code.sarif
