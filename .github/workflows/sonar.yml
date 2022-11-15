@@ -43,10 +43,10 @@ jobs:
         image: appvul
         args: > --file=Dockerfile
                 --sarif-file-output=snyk.sarif
-      - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: snyk.sarif
+    - name: Upload SARIF file
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: snyk.sarif
 
 
   deploy-heroku:
