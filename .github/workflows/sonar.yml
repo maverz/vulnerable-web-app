@@ -59,7 +59,7 @@ jobs:
         with:
           image: image-snyk:${{ github.sha }}
           args: >
-            DEBUG=*snyk*
+            -d
             --file=Dockerfile
             --severity-threshold=high
       - name: Upload SARIF file
