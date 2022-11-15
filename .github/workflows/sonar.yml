@@ -63,15 +63,15 @@ jobs:
         with:
           sarif_file: snyk.sarif
 
-  build:
+  deploy-heroku:
+    name: Deploy Heroku
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Deploy to Heroku
-        uses: behe/heroku-build@v1.1
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
-          app-name: "nnieto-vulnerable-app"
-          api-key: "${{secrets.HEROKU_API_KEY}}"
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "nnieto-vulne2022" #Must be unique in Heroku
           heroku_email: "nico.n@live.com.ar"
           remote_branch: "master"
           usedocker: true
