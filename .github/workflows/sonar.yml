@@ -29,12 +29,12 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --sarif-file-output=snyk.sarif
+          args: --sarif-file-output=/tmp/snyk.sarif
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: snyk.sarif
-
+          sarif_file: /tmp/snyk.sarif
+          
   deploy-heroku:
     name: Deploy Heroku
     runs-on: ubuntu-latest
