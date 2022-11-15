@@ -34,7 +34,6 @@ jobs:
             -d
             --file=package.json
             --severity-threshold=high
-            --all-projects
             --sarif-file-output=snyk-code.sarif
       - name: Upload SARIF file
         #if: always()
